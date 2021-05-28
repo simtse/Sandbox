@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sandbox">
         <activity
-            android:name=".CodeLabeComposeBasics"
+            android:name=".CodeLabComposeBasics"
             android:exported="true"
             android:label="@string/title_activity_code_labe_compose_basics"
             android:theme="@style/Theme.Sandbox.NoActionBar" />

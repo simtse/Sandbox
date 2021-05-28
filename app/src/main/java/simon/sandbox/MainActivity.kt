@@ -45,7 +45,7 @@ fun HomeMenu() {
         context.startActivity(
           Intent(
             context,
-            CodeLabeComposeBasics::class.java
+            CodeLabComposeBasics::class.java
           )
         )
       }) {
