@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -34,22 +35,36 @@ fun HomeMenu() {
       TopAppBar {
         Text(text = "Simon's Sandbox")
       }
-      Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(Intent(context, NewsStoryGoogleIo::class.java))
-      }) {
-        Text(text = "News Story Google IO")
-      }
-      Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(
-          Intent(
-            context,
-            CodeLabComposeBasics::class.java
+      Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
+        Spacer(Modifier.height(16.dp))
+        Button(onClick = {
+          context.startActivity(Intent(context, NewsStoryGoogleIo::class.java))
+        }) {
+          Text(text = "News Story Google IO")
+        }
+        Spacer(Modifier.height(16.dp))
+        Button(onClick = {
+          context.startActivity(
+            Intent(
+              context,
+              CodeLabComposeBasics::class.java
+            )
           )
-        )
-      }) {
-        Text(text = "Codelabs Compose basic")
+        }) {
+          Text(text = "Codelabs Compose basic")
+        }
+
+        Spacer(Modifier.height(16.dp))
+        Button(onClick = {
+          context.startActivity(
+            Intent(
+              context,
+              CodeLabComposeLayouts::class.java
+            )
+          )
+        }) {
+          Text(text = "Codelabs Layouts")
+        }
       }
     }
   }
