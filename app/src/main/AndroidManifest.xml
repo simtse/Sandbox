@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="simon.sandbox">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +20,11 @@
             android:name=".CodeLabComposeLayouts"
             android:exported="true"
             android:label="@string/title_activity_code_labe_compose_basics"
+            android:theme="@style/Theme.Sandbox.NoActionBar" />
+        <activity
+            android:name=".CodeLabComposeLists"
+            android:exported="true"
+            android:label="@string/title_activity_code_labe_compose_basics_layouts"
             android:theme="@style/Theme.Sandbox.NoActionBar" />
         <activity
             android:name=".NewsStoryGoogleIo"

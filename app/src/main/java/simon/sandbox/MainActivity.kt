@@ -88,6 +88,18 @@ fun HomeMenu(modifier: Modifier = Modifier) {
       }) {
         Text(text = "Codelabs Layouts")
       }
+
+      Spacer(Modifier.height(16.dp))
+      Button(onClick = {
+        context.startActivity(
+          Intent(
+            context,
+            CodeLabComposeLists::class.java
+          )
+        )
+      }) {
+        Text(text = "Codelabs Lists")
+      }
     }
   }
 }

@@ -2,4 +2,6 @@
     <string name="app_name">Sandbox</string>
     <string name="title_activity_new_story_google_io">NewStoryGoogleIo</string>
     <string name="title_activity_code_labe_compose_basics">CodeLabeComposeBasics</string>
+    <string name="title_activity_code_labe_compose_basics_layouts">CodeLabeComposeBasics-Layouts</string>
+    <string name="title_activity_code_labe_compose_basics_lists">CodeLabeComposeBasics-Lists</string>
 </resources>
