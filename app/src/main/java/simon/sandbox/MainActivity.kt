@@ -9,9 +9,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -22,49 +27,66 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      HomeMenu()
+      HomeScaffold()
     }
   }
 }
 
 @Composable
-fun HomeMenu() {
-  val context = LocalContext.current
+fun HomeScaffold() {
   MaterialTheme {
-    Column {
-      TopAppBar {
-        Text(text = "Simon's Sandbox")
-      }
-      Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
-        Spacer(Modifier.height(16.dp))
-        Button(onClick = {
-          context.startActivity(Intent(context, NewsStoryGoogleIo::class.java))
-        }) {
-          Text(text = "News Story Google IO")
-        }
-        Spacer(Modifier.height(16.dp))
-        Button(onClick = {
-          context.startActivity(
-            Intent(
-              context,
-              CodeLabComposeBasics::class.java
-            )
-          )
-        }) {
-          Text(text = "Codelabs Compose basic")
-        }
+    Scaffold(
+      topBar = {
+        TopAppBar(
+          title = { Text(text = "Simon's Sandbox") },
+          actions = {
+            IconButton(onClick = { /* doSomething() */ }) {
+              Icon(Icons.Filled.Favorite, contentDescription = null)
+            }
+          }
+        )
+      },
+    ) { innerPadding ->
+      HomeMenu(Modifier
+        .padding(innerPadding)
+        .padding(8.dp))
+    }
+  }
+}
 
-        Spacer(Modifier.height(16.dp))
-        Button(onClick = {
-          context.startActivity(
-            Intent(
-              context,
-              CodeLabComposeLayouts::class.java
-            )
+@Composable
+fun HomeMenu(modifier: Modifier = Modifier) {
+  val context = LocalContext.current
+  Column {
+    Column(modifier) {
+      Spacer(Modifier.height(16.dp))
+      Button(onClick = {
+        context.startActivity(Intent(context, NewsStoryGoogleIo::class.java))
+      }) {
+        Text(text = "News Story Google IO")
+      }
+      Spacer(Modifier.height(16.dp))
+      Button(onClick = {
+        context.startActivity(
+          Intent(
+            context,
+            CodeLabComposeBasics::class.java
           )
-        }) {
-          Text(text = "Codelabs Layouts")
-        }
+        )
+      }) {
+        Text(text = "Codelabs Compose basic")
+      }
+
+      Spacer(Modifier.height(16.dp))
+      Button(onClick = {
+        context.startActivity(
+          Intent(
+            context,
+            CodeLabComposeLayouts::class.java
+          )
+        )
+      }) {
+        Text(text = "Codelabs Layouts")
       }
     }
   }
@@ -73,5 +95,5 @@ fun HomeMenu() {
 @Preview(showBackground = true)
 @Composable
 fun MainMenuPreview() {
-  HomeMenu()
+  HomeScaffold()
 }
