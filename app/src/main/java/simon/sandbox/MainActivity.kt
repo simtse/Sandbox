@@ -1,5 +1,6 @@
 package simon.sandbox
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -22,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlin.reflect.KClass
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,60 +51,36 @@ fun HomeScaffold() {
         )
       },
     ) { innerPadding ->
-      HomeMenu(Modifier
-        .padding(innerPadding)
-        .padding(8.dp))
+      HomeMenu(
+        Modifier
+          .padding(innerPadding)
+          .padding(8.dp)
+      )
     }
   }
 }
 
 @Composable
 fun HomeMenu(modifier: Modifier = Modifier) {
-  val context = LocalContext.current
-  Column {
-    Column(modifier) {
+  val items = listOf(
+    "News Story Google IO" to NewsStoryGoogleIo::class,
+    "Codelabs Compose basic" to CodeLabComposeBasics::class,
+    "Codelabs Layouts" to CodeLabComposeLayouts::class,
+    "Codelabs Lists" to CodeLabComposeLists::class,
+  )
+  LazyColumn(modifier = modifier) {
+    items(items = items) { item ->
+      MainMenuItem(item.first, item.second)
       Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(Intent(context, NewsStoryGoogleIo::class.java))
-      }) {
-        Text(text = "News Story Google IO")
-      }
-      Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(
-          Intent(
-            context,
-            CodeLabComposeBasics::class.java
-          )
-        )
-      }) {
-        Text(text = "Codelabs Compose basic")
-      }
-
-      Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(
-          Intent(
-            context,
-            CodeLabComposeLayouts::class.java
-          )
-        )
-      }) {
-        Text(text = "Codelabs Layouts")
-      }
-
-      Spacer(Modifier.height(16.dp))
-      Button(onClick = {
-        context.startActivity(
-          Intent(
-            context,
-            CodeLabComposeLists::class.java
-          )
-        )
-      }) {
-        Text(text = "Codelabs Lists")
-      }
     }
+  }
+}
+
+@Composable
+fun MainMenuItem(text: String, activityClass: KClass<out Activity>) {
+  val context = LocalContext.current
+  Button(onClick = { context.startActivity(Intent(context, activityClass.java)) }) {
+    Text(text = text)
   }
 }
 
