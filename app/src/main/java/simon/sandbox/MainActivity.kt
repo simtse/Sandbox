@@ -68,6 +68,7 @@ fun HomeMenu(modifier: Modifier = Modifier) {
     "Codelabs Lists" to CodeLabComposeLists::class,
     "Codelabs Custom Layouts" to CodeLabComposeCustomLayouts::class,
     "Codelabs Complex Layouts" to CodeLabComposeComplexCustomLayouts::class,
+    "Codelabs Constraint Layout" to CodeLabComposeConstraintLayout::class,
   )
   LazyColumn(modifier = modifier) {
     items(items = items) { item ->
