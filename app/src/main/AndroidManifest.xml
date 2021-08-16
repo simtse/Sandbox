@@ -24,7 +24,17 @@
         <activity
             android:name=".CodeLabComposeLists"
             android:exported="true"
+            android:label="@string/title_activity_code_labe_compose_basics_lists"
+            android:theme="@style/Theme.Sandbox.NoActionBar" />
+        <activity
+            android:name=".CodeLabComposeCustomLayouts"
+            android:exported="true"
             android:label="@string/title_activity_code_labe_compose_basics_layouts"
+            android:theme="@style/Theme.Sandbox.NoActionBar" />
+        <activity
+            android:name=".CodeLabComposeComplexCustomLayouts"
+            android:exported="true"
+            android:label="@string/title_activity_code_labe_compose_complex_layouts"
             android:theme="@style/Theme.Sandbox.NoActionBar" />
         <activity
             android:name=".NewsStoryGoogleIo"

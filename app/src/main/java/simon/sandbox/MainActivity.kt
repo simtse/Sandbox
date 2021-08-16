@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -67,6 +66,8 @@ fun HomeMenu(modifier: Modifier = Modifier) {
     "Codelabs Compose basic" to CodeLabComposeBasics::class,
     "Codelabs Layouts" to CodeLabComposeLayouts::class,
     "Codelabs Lists" to CodeLabComposeLists::class,
+    "Codelabs Custom Layouts" to CodeLabComposeCustomLayouts::class,
+    "Codelabs Complex Layouts" to CodeLabComposeComplexCustomLayouts::class,
   )
   LazyColumn(modifier = modifier) {
     items(items = items) { item ->

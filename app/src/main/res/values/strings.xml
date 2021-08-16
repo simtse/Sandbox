@@ -4,4 +4,6 @@
     <string name="title_activity_code_labe_compose_basics">CodeLabeComposeBasics</string>
     <string name="title_activity_code_labe_compose_basics_layouts">CodeLabeComposeBasics-Layouts</string>
     <string name="title_activity_code_labe_compose_basics_lists">CodeLabeComposeBasics-Lists</string>
+    <string name="title_activity_code_labe_compose_custom_layouts">CodeLabeComposeBasics-Custom Layouts</string>
+    <string name="title_activity_code_labe_compose_complex_layouts">CodeLabeComposeBasics-Complex Custom Layouts</string>
 </resources>
