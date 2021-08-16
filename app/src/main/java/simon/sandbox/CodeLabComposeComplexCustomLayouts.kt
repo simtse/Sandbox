@@ -5,12 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -24,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import simon.sandbox.ui.theme.SandboxTheme
+import kotlin.math.max
 
 class CodeLabComposeComplexCustomLayouts : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +41,11 @@ class CodeLabComposeComplexCustomLayouts : ComponentActivity() {
 
 @Composable
 fun ComplexGridBody(modifier: Modifier = Modifier) {
-  StaggeredGrid(modifier) {
-    for (topic in topics) {
-      Chip(topic, Modifier.padding(8.dp))
+  Row(modifier.horizontalScroll(rememberScrollState())) {
+    StaggeredGrid(modifier) {
+      for (topic in topics) {
+        Chip(topic, Modifier.padding(8.dp))
+      }
     }
   }
 }
@@ -72,7 +77,7 @@ fun StaggeredGrid(
       // Track the width and max height of each row
       val row = index % rows
       rowWidths[row] += placeable.width
-      rowHeights[row] = kotlin.math.max(rowHeights[row], placeable.height)
+      rowHeights[row] = max(rowHeights[row], placeable.height)
 
       placeable
     }
