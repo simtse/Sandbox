@@ -42,6 +42,10 @@
             android:label="@string/title_activity_code_labe_compose_constraint_layouts"
             android:theme="@style/Theme.Sandbox.NoActionBar" />
         <activity
+            android:name=".CodeLabComposeLayoutIntrinsics"
+            android:exported="true"
+            android:theme="@style/Theme.Sandbox.NoActionBar" />
+        <activity
             android:name=".NewsStoryGoogleIo"
             android:exported="true"
             android:label="@string/title_activity_new_story_google_io"
